@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    NBA Teams
+{% endblock %}
+
+{% block body %}
+<h1>{{header}}</h1>
+    <form>
+        <div>
+            <input type="text" name="name" placeholder="name"/>
+            <input type="submit" value="Search"/>
+        </div>
+        <a href="{% url 'nbalist' %}">Clear Search</a>
+        <a href="{% url 'nba_create' %}">Add Team</a>
+    </form>
+    <div class="grid-container">
+        {% for nba in nbas %}
+            <div class="grid-item">
+                <h3>{{nba.name}}</h3>
+                <img style="height: 100px" src="{{nba.img}}" alt="{{nba.name}}"/>
+                <p>{{nba.season_wins}} - {{nba.season_losses}}</p>
+                <button class="btn"><a href="{% url 'nba_detail' nba.pk %}">Details</a></button>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+
+{% block body %}
+
+    <div>
+    <img style="height: 200px" src="{{nba.img}}" alt="{{nba.name}}" />
+    </div>
+        <h1>{{nba.name}}</h1>
+    </div>
+    <div>
+        <h3>Season Record: {{nba.season_wins}} - {{nba.season_loses}}</h3>
+    </div>
+    <div>
+        <button class="btn"><a href="{% url 'nba_update' nba.pk %}">Update</a></button>
+        <button class="btn"><a href="{% url 'nba_delete' nba.pk %}">Delete</a></button>
+    </div>
+
+{% endblock %}
