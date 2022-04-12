@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <h1>{{ username }}'s collections:</h1>
+
+    {% for nba in nbas %}
+        <a href="/teams/{{ nba.id }}">
+            <h4>{{ nba.name }}</h4>
+        </a>
+    {% endfor %}
+{% endblock %}

@@ -40,20 +40,20 @@ class NBADetail(DetailView):
     template_name = "nba_detail.html"
 
 class NBAUpdate(UpdateView):
-    model: NBA
+    model = NBA
     fields = ['name', 'img', 'season_wins', 'season_losses']
     template_name = 'nba_update.html'
     success_url = '/teams/'
-    def get_success_url(self):
+    def  get_success_url(self):
         return reverse('nba_detail', kwargs={'pk': self.object.pk})
 
 class NBADelete(DeleteView):
-    model: NBA
-    fields = ['name', 'img', 'season_wins', 'season_losses']
-    template_name = 'nba_update.html'
-    success_url = "/teams/"
+    model = NBA
+    template_name = "nba_delete.html"
+    success_url = '/teams/'
 
 def profile(request, username):
     user = User.objects.get(username=username)
     nba = NBA.objects.filter(user=user)
-    return render(request, 'profile.html', {'username': username, 'nba': nba})
+    return render (request, 'profile.html',
+    {'username': username, 'teams': nba})
