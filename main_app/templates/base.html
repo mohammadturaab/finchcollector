@@ -15,9 +15,11 @@
 </head>
 <body>
     <nav>
-        <a href="/teams">NBA Teams</a>
-        <a href="/admin">Admin</a>
-        <a href="/user/{{user.username}}">Profile</a>
+        <ul>
+            <li><a href="/teams">NBA Teams</a></li>
+            <li><a href="/user/{{user.username}}">Profile</a></li>
+            <li><a href="/admin">Admin</a></li>
+        </ul>
     </nav>
     {% block body %}
     {% endblock %}

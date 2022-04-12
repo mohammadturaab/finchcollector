@@ -11,8 +11,12 @@
             <input type="text" name="name" placeholder="name"/>
             <input type="submit" value="Search"/>
         </div>
-        <a href="{% url 'nbalist' %}">Clear Search</a>
-        <a href="{% url 'nba_create' %}">Add Team</a>
+        <ul>
+            <li>
+                <a href="{% url 'nbalist' %}">Clear Search</a>
+                <a href="{% url 'nba_create' %}">Add Team</a>
+            </li>
+        </ul>
     </form>
     <div class="grid-container">
         {% for nba in nbas %}

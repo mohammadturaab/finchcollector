@@ -1,7 +1,7 @@
 from turtle import mode
 from django.shortcuts import render
 from django.views import View
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import TemplateView
 from .models import NBA
 from django.views.generic import DetailView
@@ -33,7 +33,13 @@ class NBA_Create(CreateView):
     fields = ['name', 'img', 'season_wins', 'season_losses']
     template_name = 'nba_create.html'
     def get_success_url(self):
-        return reverse('nba_detail', kwargs={'pk': self.object.pk})  
+        return reverse('nba_detail', kwargs={'pk': self.object.pk})
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+
+        return HttpResponseRedirect('/teams/')
 
 class NBADetail(DetailView):
     model = NBA
