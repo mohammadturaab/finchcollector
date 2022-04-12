@@ -62,4 +62,4 @@ def profile(request, username):
     user = User.objects.get(username=username)
     nba = NBA.objects.filter(user=user)
     return render (request, 'profile.html',
-    {'username': username, 'teams': nba})
+    {'username': username, 'nbas': nba})

@@ -2,11 +2,14 @@
 
 {% block body %}
 
-    <h1>{{ username }}'s collections:</h1>
+    <h1>{{ user.first_name }}'s collections:</h1>
 
     {% for nba in nbas %}
-        <a href="/teams/{{ nba.id }}">
-            <h4>{{ nba.name }}</h4>
-        </a>
+    <div class="grid-item">
+        <h3>{{nba.name}}</h3>
+        <img style="height: 100px" src="{{nba.img}}" alt="{{nba.name}}"/>
+        <p>{{nba.season_wins}} - {{nba.season_losses}}</p>
+        <button class="btn"><a href="{% url 'nba_detail' nba.pk %}">Details</a></button>
+    </div>
     {% endfor %}
 {% endblock %}
