@@ -9,6 +9,13 @@
     </div>
     <div>
         <h3>Season Record: {{nba.season_wins}} - {{nba.season_losses}}</h3>
+        <h4>Current Players:</h4>
+        {% for player in nba.players.all %}
+            <div>{{player.name}}</div>
+        {% empty %}
+            <div>No Players Added</div>
+        {% endfor %}
+        <h4>Player History:</h4>
     </div>
     <div>
         <button class="btn"><a href="{% url 'nba_update' nba.pk %}">Update</a></button>

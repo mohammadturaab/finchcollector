@@ -3,15 +3,26 @@
 
 <h1>Players List</h1>
 
+
 {% for player in players %}
     <div>
-        <a href="{% url 'players_show' player.id %}">
-            <div>
-                <span>{{ player.name }}</span>
-                <p>Color: {{ player.position }}</p>
-            </div>
-        </a>
+        <ul>
+            <li>
+                <a href="{% url 'players_show' player.id %}">
+                    <div>
+                        <span>{{ player.name }}</span>
+                        <p>Position: {{ player.position }}</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
     </div>
 {% endfor %}
-
+    <p>Create new Player: 
+        <button class="btn">
+        <a href="/player/create">
+            Create
+        </a>
+        </button>
+    </p>
 {% endblock %}

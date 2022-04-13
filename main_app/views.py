@@ -30,7 +30,7 @@ class NBAList(TemplateView):
 
 class NBA_Create(CreateView):
     model = NBA
-    fields = ['name', 'img', 'season_wins', 'season_losses']
+    fields = ['name', 'img', 'season_wins', 'season_losses', 'players']
     template_name = 'nba_create.html'
     def get_success_url(self):
         return reverse('nba_detail', kwargs={'pk': self.object.pk})
@@ -47,7 +47,7 @@ class NBADetail(DetailView):
 
 class NBAUpdate(UpdateView):
     model = NBA
-    fields = ['name', 'img', 'season_wins', 'season_losses']
+    fields = ['name', 'img', 'season_wins', 'season_losses', 'players']
     template_name = 'nba_update.html'
     success_url = '/teams/'
     def  get_success_url(self):
@@ -66,25 +66,25 @@ def profile(request, username):
 
 def players_index(request):
     players = Player.objects.all()
-    return render (request, 'players_index.html', {'players': players})
+    return render (request, 'player_index.html', {'players': players})
 
 def players_show(request, player_id):
     player = Player.objects.get(id=player_id)
-    return render (request, 'players_show.html',{'player': player})
+    return render (request, 'player_show.html',{'player': player})
 
 class PlayerCreate(CreateView):
     model = Player
     fields = '__all__'
     template_name = 'player_form.html'
-    success_url = '/player'
+    success_url = '/players'
 
 class PlayerUpdate(UpdateView):
     model = Player
     fields = ['name', 'position']
     template_name = 'player_update.html'
-    success_url = '/player'
+    success_url = '/players'
 
 class PlayerDelete(DeleteView):
     model = Player
     template_name = 'player_confirm_delete.html'
-    success_url = '/player'
+    success_url = '/players'
