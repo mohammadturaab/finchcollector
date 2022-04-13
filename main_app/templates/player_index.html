@@ -10,6 +10,7 @@
             <li>
                 <a href="{% url 'players_show' player.id %}">
                     <div>
+                        <img style="height: 100px" src="{{player.img}}" alt="{{player.name}}"/>
                         <span>{{ player.name }}</span>
                         <p>Position: {{ player.position }}</p>
                     </div>
