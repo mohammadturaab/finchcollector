@@ -11,7 +11,7 @@ POSITIONS = (
 )
 TIMELINE = (
     ('Current', 'current'),
-    ('Past', 'Past')
+    ('Past', 'past')
 )
 class Player(models.Model):
     img = models.CharField(max_length=250)
