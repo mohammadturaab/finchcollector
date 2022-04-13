@@ -17,7 +17,7 @@ class Player(models.Model):
     img = models.CharField(max_length=250)
     name = models.CharField(max_length=100)
     position = models.CharField(max_length=50, choices=POSITIONS)
-    time_line = models.CharField(max_length=50, choices=POSITIONS)
+    time_line = models.CharField(max_length=50, choices=TIMELINE)
 
     def __str__(self):
         return self.name
