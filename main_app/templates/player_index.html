@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>Players List</h1>
+
+{% for player in players %}
+    <div>
+        <a href="{% url 'players_show' player.id %}">
+            <div>
+                <span>{{ player.name }}</span>
+                <p>Color: {{ player.position }}</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+
+{% endblock %}

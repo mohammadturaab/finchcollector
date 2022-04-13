@@ -9,7 +9,7 @@ POSITIONS = (
     ('pf', 'power forward'),
     ('c', 'center')
 )
-class Players(models.Model):
+class Player(models.Model):
     name = models.CharField(max_length=100)
     position = models.CharField(max_length=50, choices=POSITIONS)
 
@@ -23,6 +23,7 @@ class NBA(models.Model):
     season_losses = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null = True)
+    players = models.ManyToManyField(Player)
 
     def __str__(self):
         return self.name

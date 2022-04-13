@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>Player Details</h1>
+
+<div>
+    <div>
+        <span>{{ player.name }}</span>
+        <p>Color: {{ player.position }}</p>
+    </div>
+    <div>
+        <a href="{% url 'players_update' player.id %}">Edit</a>
+        <a href="{% url 'players_delete' player.id %}">Delete</a>
+    </div>
+</div>
+{% endblock %}
