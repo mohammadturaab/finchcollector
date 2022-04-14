@@ -10,17 +10,10 @@
     <div>
         <h3>Season Record: {{nba.season_wins}} - {{nba.season_losses}}</h3>
         {% for player in nba.players.all %}
-            {% if player.time_line == 'Current' %}
-            <h3>Current Players:</h3>
+            <h3>Players:</h3>
                 <div>
                     <p>{{player.name}}</p>
-                    <p>{{player.time_line}}</p>
                 </div>
-            {% elif players.time_line == 'Past' %}
-            <h4>Player History:</h4>
-                <p>{{player.name}}</p>
-                <p>{{player.time_line}}</p>
-            {% endif %}
         {% endfor %}
     </div>
     <div>
